@@ -5,7 +5,7 @@
             "domains": [
                 {   
                     "name": "Enterprise", 
-                    "data": ["https://raw.githubusercontent.com/zGina/Attack-Seaman/master/assets/new.json"]
+                    "data": ["https://raw.githubusercontent.com/zGina/attack-navigator/master/new.json"]
                 },
                 {   
                     "name": "Mobile", 
