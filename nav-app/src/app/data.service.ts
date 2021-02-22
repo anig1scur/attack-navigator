@@ -365,9 +365,12 @@ export class Technique extends BaseStix {
     constructor(stixSDO: any, subtechniques: Technique[], dataService: DataService) {
         super(stixSDO, dataService);
         this.platforms = stixSDO.x_mitre_platforms;
-      	if (stixSDO.x_mitre_data_sources !== undefined)
+          if (stixSDO.x_mitre_data_sources !== undefined)
+          {
+            //   console.log(stixSDO.x_mitre_data_sources)
 		      this.datasources = stixSDO.x_mitre_data_sources.toString();
-	      else
+          }
+              else
 		      this.datasources = "";
         this.tactics = stixSDO.kill_chain_phases.map((phase) => phase.phase_name);
 
@@ -386,6 +389,7 @@ export class Technique extends BaseStix {
     public get_technique_tactic_id(tactic: string | Tactic): string {
         let tactic_shortname = tactic instanceof Tactic? tactic.shortname : tactic;
         if (!this.tactics.includes(tactic_shortname)) throw new Error(tactic_shortname + " is not a tactic of " + this.attackID);
+        // console.log(this.attackID + "^" + tactic_shortname);
         return this.attackID + "^" + tactic_shortname;
     }
 
